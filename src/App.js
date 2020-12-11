@@ -1,25 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {users} from './database/userDB.js'
+import UserComponent from './components/user/UserComponent'
+import AllUsers from './components/allUsers/AllUsers'
+import AllPosts from "./components/allPosts/AllPosts";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+/*
+HOMETASK 2
+    state = {flag: false}
+
+    test = () => {
+        this.setState({flag: !this.state.flag})
+        console.log('test', this.state.flag.toString())
+    }
+   ===============================================================================================
+*/
+    render () {
+
+        console.log(Math.floor(Math.random() * 10))
+
+        return (
+            <div>
+
+                <AllUsers/>
+                <hr/>
+                <AllPosts/>
+
+
+{/*===============================================================================================================================
+                <Router>
+
+                    <div>
+                        <Link to = {'/users'}> users </Link>
+                    </div>
+
+                    <Switch>
+                        <Route path = {'/users'}>
+                            <AllUsers/>
+                        </Route>
+                    </Switch>
+
+                </Router>*/}
+
+ {/*====================================================================================================================
+ HOMETASK 1
+                {
+                    users.map((user, index) => {
+                        return (<UserComponent item = {user} key = {index} />)
+                    })
+
+                }*/}
+
+  {/*HOMETASK 2
+
+                <button onClick = {this.test}> click me </button>
+ ====================================================================================================================*/}
+
+            </div>
+        );
+    }
 }
 
 export default App;
