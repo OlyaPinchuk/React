@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 class PostComponent extends Component {
 
+
     render() {
 
         let {post, func} = this.props

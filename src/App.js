@@ -14,15 +14,14 @@ import {
 
 class App extends Component {
 /*
-HOMETASK 2
+HOMETASK
     state = {flag: false}
 
     test = () => {
         this.setState({flag: !this.state.flag})
         console.log('test', this.state.flag.toString())
     }
-   ===============================================================================================
-*/
+   =============================================================================================== */
     render () {
 
         console.log(Math.floor(Math.random() * 10))
@@ -30,12 +29,10 @@ HOMETASK 2
         return (
             <div>
 
-                <AllUsers/>
+                {/*<AllUsers/>
                 <hr/>
-                <AllPosts/>
+                <AllPosts/>*/}
 
-
-{/*===============================================================================================================================
                 <Router>
 
                     <div>
@@ -48,21 +45,8 @@ HOMETASK 2
                         </Route>
                     </Switch>
 
-                </Router>*/}
+                </Router>
 
- {/*====================================================================================================================
- HOMETASK 1
-                {
-                    users.map((user, index) => {
-                        return (<UserComponent item = {user} key = {index} />)
-                    })
-
-                }*/}
-
-  {/*HOMETASK 2
-
-                <button onClick = {this.test}> click me </button>
- ====================================================================================================================*/}
 
             </div>
         );

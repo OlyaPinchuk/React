@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 //import './User.css'
 
 
-
-
-
 class UserComponent extends Component {
 
     render () {
