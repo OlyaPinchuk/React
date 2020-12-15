@@ -13,27 +13,19 @@ import {
 
 
 class App extends Component {
-/*
-HOMETASK
-    state = {flag: false}
 
-    test = () => {
-        this.setState({flag: !this.state.flag})
-        console.log('test', this.state.flag.toString())
-    }
-   =============================================================================================== */
     render () {
 
-        console.log(Math.floor(Math.random() * 10))
+        /*console.log(Math.floor(Math.random() * 10))*/
 
         return (
             <div>
 
-                {/*<AllUsers/>
+                <AllUsers/>
                 <hr/>
-                <AllPosts/>*/}
+                {/*<AllPosts/>*/}
 
-                <Router>
+                {/*<Router>
 
                     <div>
                         <Link to = {'/users'}> users </Link>
@@ -45,7 +37,7 @@ HOMETASK
                         </Route>
                     </Switch>
 
-                </Router>
+                </Router>*/}
 
 
             </div>

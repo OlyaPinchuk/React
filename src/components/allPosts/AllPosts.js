@@ -19,13 +19,13 @@ class AllPosts extends Component {
     render() {
 
 
-        let {posts, chosenPost} = this.state
+        let {posts, chosenPost,} = this.state
 
         return (
             <div>
 
                 {
-                    chosenPost && <h2> {chosenPost.userId} - {chosenPost.id} - {chosenPost.title} </h2>
+                    chosenPost && <PostComponent post = {chosenPost} isBold = {true}/>
 
                 }
 
@@ -38,12 +38,11 @@ class AllPosts extends Component {
 
 
 
+
+
             </div>
         );
     }
-
-
-
 
     componentDidMount() {
         this.posts = []

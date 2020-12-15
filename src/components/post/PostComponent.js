@@ -5,14 +5,22 @@ class PostComponent extends Component {
 
     render() {
 
-        let {post, func} = this.props
+        let {post, func, isBold} = this.props
+
+        let postInfo = <span> {post.userId} - {post.id} - {post.title} </span>;
+        if (isBold) {
+            postInfo = <h1> {post.userId} - {post.id} - {post.title} </h1>
+        }
 
         return (
             <div>
 
-                {post.userId} - {post.id} - {post.title}
 
-                <button onClick = {() => {func(post.id)}} > chose </button>
+                {postInfo}
+
+                { func && <button onClick = {() => {func(post.id)}} > chose </button>
+
+                }
 
             </div>
         );

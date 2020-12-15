@@ -6,28 +6,20 @@ class UserComponent extends Component {
 
     render () {
 
-/*HOMETASK 1
-
-        let {item} = this.props
-        console.log(item)*/
-
         let {item, func} = this.props
+        let text = 'Hi user! -'
 
         return (
             <div>
+                {func && text}
 
-{/*HOMETASK 1*/}
-                {/*<div> {item.name} - {item.age} - {item.status.toString()} </div>*/}
+                {item.id} - {item.name}
 
-                {item.name} - {item.id}
-
-                <button onClick={() => func(item.id)}>chose</button>
+                {func && <button onClick={() => func(item.id)}>chose</button>}
 
             </div>
-
         );
     }
 }
-
 
 export default UserComponent;
