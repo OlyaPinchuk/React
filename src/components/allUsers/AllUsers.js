@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import UserComponent from '../user/UserComponent.js'
 import {UserServices} from "../../services/UserServices";
-import AllPosts from '../allPosts/AllPosts'
-import PostComponent from '../post/PostComponent'
-import UserPosts from '../UserPosts'
+import AllPosts from '../posts/AllPosts'
+import PostComponent from '../posts/PostComponent'
+import UserPosts from '../posts/UserPosts'
 
 class AllUsers extends Component {
 

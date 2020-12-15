@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import './User.css'
 import {
     BrowserRouter as Router,
     Link,
@@ -8,24 +7,21 @@ import {
     withRouter
 } from 'react-router-dom';
 
+class PostComponent extends Component {
 
 
-
-class UserComponent extends Component {
-
-    render () {
+    render() {
 
         let {item, match: {url}} = this.props
-        console.log(this.props)
 
         return (
             <div>
 
-                User: {item.id} - {item.name} - <Link to = {`${url}/${item.id}`} > details </Link>
+                    Post: {item.id} - {item.title} - <Link to = {`${url}/${item.id} `} >details</Link>
 
             </div>
         );
     }
 }
 
-export default withRouter(UserComponent);
+export default withRouter(PostComponent);

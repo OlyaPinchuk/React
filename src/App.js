@@ -1,22 +1,20 @@
 import React, {Component} from 'react';
-import {users} from './database/userDB.js'
-import UserComponent from './components/user/UserComponent'
-import AllUsers from './components/allUsers/AllUsers'
-import AllPosts from "./components/allPosts/AllPosts";
+import {users} from './database/userDB.js';
+import UserComponent from './components/user/UserComponent';
+import AllUsers from './components/allUsers/AllUsers';
+import AllPosts from "./components/posts/AllPosts";
+import AllComments from './components/comments/AllComments';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
-} from 'react-router-dom'
-
+    Link,
+} from 'react-router-dom';
 
 
 class App extends Component {
 
     render () {
-
-        /*console.log(Math.floor(Math.random() * 10))*/
 
         return (
             <div>
@@ -46,7 +44,7 @@ class App extends Component {
                         <Route path = {'/posts'} component = {AllPosts} />
 
                         <Route path = {'/comments'} render = {() => {
-                            return 'comments will be here'
+                            return <AllComments/>
                             }} />
                         }
 

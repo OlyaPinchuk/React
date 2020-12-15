@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import UserComponent from './user/UserComponent';
-import PostComponent from './post/PostComponent';
+import UserComponent from '../user/UserComponent';
+import PostComponent from './PostComponent';
 
 
 
