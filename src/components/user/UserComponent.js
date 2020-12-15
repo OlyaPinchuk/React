@@ -6,16 +6,12 @@ class UserComponent extends Component {
 
     render () {
 
-        let {item, func} = this.props
-        let text = 'Hi user! -'
+        let {item} = this.props
 
         return (
             <div>
-                {func && text}
 
                 {item.id} - {item.name}
-
-                {func && <button onClick={() => func(item.id)}>chose</button>}
 
             </div>
         );

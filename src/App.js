@@ -21,23 +21,38 @@ class App extends Component {
         return (
             <div>
 
-                <AllUsers/>
-                <hr/>
-                {/*<AllPosts/>*/}
-
-                {/*<Router>
+                <Router>
 
                     <div>
                         <Link to = {'/users'}> users </Link>
                     </div>
 
+                    <div>
+                        <Link to = {'/posts'}> posts </Link>
+                    </div>
+
+                    <div>
+                        <Link to = {'/comments'}> comments </Link>
+                    </div>
+
+
+                    <hr/>
+
                     <Switch>
                         <Route path = {'/users'}>
                             <AllUsers/>
                         </Route>
+
+                        <Route path = {'/posts'} component = {AllPosts} />
+
+                        <Route path = {'/comments'} render = {() => {
+                            return 'comments will be here'
+                            }} />
+                        }
+
                     </Switch>
 
-                </Router>*/}
+                </Router>
 
 
             </div>
