@@ -25,21 +25,6 @@ class App extends Component {
                 <hr/>
                 {/*<AllPosts/>*/}
 
-                {/*<Router>
-
-                    <div>
-                        <Link to = {'/users'}> users </Link>
-                    </div>
-
-                    <Switch>
-                        <Route path = {'/users'}>
-                            <AllUsers/>
-                        </Route>
-                    </Switch>
-
-                </Router>*/}
-
-
             </div>
         );
     }
