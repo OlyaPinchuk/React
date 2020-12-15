@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
-//import './User.css'
 
 
-class UserComponent extends Component {
+class Starship extends Component {
 
     render () {
 
         let {item} = this.props
 
         return (
+
             <div>
 
-                {item.id} - {item.name}
+                {item.name} - {item.model}
+
 
             </div>
+
         );
     }
 }
 
-export default UserComponent;
+export default Starship;
+

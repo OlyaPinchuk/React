@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 
-class PostComponent extends Component {
 
+class Person extends Component {
 
-    render() {
+    render () {
 
         let {item} = this.props
 
         return (
+
             <div>
 
-                    {item.id} - {item.title}
+                {item.name} - {item.birth_year}
+
 
             </div>
+
         );
     }
 }
 
-export default PostComponent;
+export default Person;
+

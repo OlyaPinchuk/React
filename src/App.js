@@ -1,8 +1,10 @@
+/*SWAPI.DEV*/
 import React, {Component} from 'react';
-import {users} from './database/userDB.js'
-import UserComponent from './components/user/UserComponent'
-import AllUsers from './components/allUsers/AllUsers'
-import AllPosts from "./components/allPosts/AllPosts";
+import People from './components/people/People'
+import Planets from './components/planets/Planets'
+import AllStarships from './components/starships/AllStarships'
+
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,49 +13,31 @@ import {
 } from 'react-router-dom'
 
 
-
 class App extends Component {
 
     render () {
 
-        /*console.log(Math.floor(Math.random() * 10))*/
-
         return (
             <div>
 
-                <Router>
+                <hr/>
+                People
+                <hr/>
 
-                    <div>
-                        <Link to = {'/users'}> users </Link>
-                    </div>
+                <People/>
+                <hr/>
 
-                    <div>
-                        <Link to = {'/posts'}> posts </Link>
-                    </div>
-
-                    <div>
-                        <Link to = {'/comments'}> comments </Link>
-                    </div>
+                <hr/>
+                Planets
+                <hr/>
+                <Planets/>
+                <hr/>
 
 
-                    <hr/>
-
-                    <Switch>
-                        <Route path = {'/users'}>
-                            <AllUsers/>
-                        </Route>
-
-                        <Route path = {'/posts'} component = {AllPosts} />
-
-                        <Route path = {'/comments'} render = {() => {
-                            return 'comments will be here'
-                            }} />
-                        }
-
-                    </Switch>
-
-                </Router>
-
+                <hr/>
+                Starships
+                <hr/>
+                <AllStarships/>
 
             </div>
         );
