@@ -1,23 +1,48 @@
 import React, {Component} from 'react';
 import UserComponent from '../user/UserComponent';
 import PostComponent from './PostComponent';
+import {UserServices} from "../../services/UserServices";
+
+import {
+    BrowserRouter as Router,
+    Link,
+    Switch,
+    Route,
+    withRouter
+} from 'react-router-dom';
 
 
 
 class UserPosts extends Component {
 
+    state = {posts: []}
+
+    userService = new UserServices()
+
+    componentDidMount () {
+        const {ID} = this.props
+        this.userService.getChosenUserPosts(ID).then(posts => this.setState({posts}))
+
+    }
+
     render() {
 
-        let {posts, user} = this.props
+        let {ID} = this.props
+
+        let {posts} = this.state
 
         return (
 
             <div>
 
-                <h1> These are the posts of <UserComponent item = {user} /> </h1>
+
+
+                here should be user posts
+
+                {/*<h1> These are the posts of <UserComponent item = {user} /> </h1>*/}
                 {
                     posts.map(value =>{
-                        return(<PostComponent post = {value} key = {value.id} />)
+                        return(<PostComponent item = {value} key = {value.id} />)
 
                     })
                 }

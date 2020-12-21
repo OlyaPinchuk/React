@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PostComponent from "./PostComponent";
 import {PostServices} from "../../services/PostServices"
+import UserPosts from './UserPosts'
 
 class AllPosts extends Component {
 

@@ -10,18 +10,17 @@ import {
 
 
 
-
 class UserComponent extends Component {
 
     render () {
 
         let {item, match: {url}} = this.props
-        console.log(this.props)
+
 
         return (
             <div>
 
-                User: {item.id} - {item.name} - <Link to = {`${url}/${item.id}`} > details </Link>
+                User: {item.id} - {item.name} - <Link to = {`${url}/${item.id}`} > details </Link> - <Link to = {`${url}/${item.id}/posts`} > posts </Link>
 
             </div>
         );
