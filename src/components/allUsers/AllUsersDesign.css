@@ -1,0 +1,30 @@
+.header {
+display: inline;
+color: blue;
+font-size: 25px;
+margin: 10px;
+margin-top: 10px;
+padding: 5px;
+
+}
+
+.whole-header {
+    background: #D9EEFF;
+    justify-content: space-around;
+
+}
+
+a:visited {
+  color: #666666;
+
+}
+
+a:link {
+  color: black;
+
+
+}
+
+.main-div {
+background: silver
+}

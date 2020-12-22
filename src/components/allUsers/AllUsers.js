@@ -5,6 +5,8 @@ import AllPosts from '../posts/AllPosts'
 import PostComponent from '../posts/PostComponent'
 import UserPosts from '../posts/UserPosts'
 import FullUser from '../user/FullUser'
+import  './AllUsersDesign.css'
+
 
 import {
     BrowserRouter as Router,
