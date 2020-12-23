@@ -20,7 +20,7 @@ class FullUser extends Component {
 
 
         return (
-            <div>
+            <div className = 'details' >
 
                 {
                     user && <div> {user.id} - {user.name} - {user.email} </div>

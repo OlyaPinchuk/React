@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../allUsers/AllUsersDesign.css'
 //import './User.css'
 import {
     BrowserRouter as Router,
@@ -18,7 +19,7 @@ class UserComponent extends Component {
 
 
         return (
-            <div>
+            <div className = 'user-div' >
 
                 User: {item.id} - {item.name} - <Link to = {`${url}/${item.id}`} > details </Link> - <Link to = {`${url}/${item.id}/posts`} > posts </Link>
 

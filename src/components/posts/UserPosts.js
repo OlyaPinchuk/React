@@ -33,13 +33,10 @@ class UserPosts extends Component {
 
         return (
 
-            <div>
+            <div className = 'posts-div' >
 
 
-
-                here should be user posts
-
-                {/*<h1> These are the posts of <UserComponent item = {user} /> </h1>*/}
+                <h3> These are user`s posts: </h3>
                 {
                     posts.map(value =>{
                         return(<PostComponent item = {value} key = {value.id} />)

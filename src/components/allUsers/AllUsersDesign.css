@@ -1,30 +1,67 @@
-.header {
-display: inline;
-color: blue;
-font-size: 25px;
-margin: 10px;
-margin-top: 10px;
-padding: 5px;
 
+
+.header-el {
+    display: inline;
+    color: blue;
+    font-size: 25px;
+    margin: 10px;
 }
 
 .whole-header {
+    padding: 5px;
+    height: 40px;
     background: #D9EEFF;
-    justify-content: space-around;
+    border-bottom: 2px grey solid;
+    /*display: flex;
+    justify-content: space-between*/;
 
 }
 
 a:visited {
-  color: #666666;
+    color: #666666;
+    background: #D9EEFF;
+    border-radius: 3px;
 
 }
 
 a:link {
-  color: black;
+    background: #D9EEFF;
+    color: black;
+    border-radius: 3px;
+
+}
+
+.all-users-page {
+    height: 100%;
+    display: flex;
+    border-radius: 10px;
+    margin: 5px;
+    align-items: flex-start;
+
 
 
 }
 
-.main-div {
-background: silver
+.user-div {
+    margin: 5px;
+    background: #E1E1E1;
+
 }
+
+.users-list {
+    background: #E1E1E1;
+    display: inline;
+    width: 40%
+
+
+}
+
+.posts-div {
+    background: #E1E1E1;
+    width: 60%
+
+
+
+
+}
+

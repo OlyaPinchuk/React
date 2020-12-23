@@ -4,7 +4,9 @@ import UserComponent from './components/user/UserComponent';
 import AllUsers from './components/allUsers/AllUsers';
 import AllPosts from "./components/posts/AllPosts";
 import AllComments from './components/comments/AllComments';
+import FullUser from './components/user/FullUser'
 import  './components/allUsers/AllUsersDesign.css'
+
 
 import {
     BrowserRouter as Router,
@@ -22,41 +24,47 @@ class App extends Component {
             <div>
 
                 <Router>
-                    <div class = 'whole-header'>
-                        <div class = 'header' >
-                            <Link class = 'b' to = {'/users'}> users </Link>
+                    <div className = 'whole-header'>
+
+                        <div class = 'header-el' >
+                               <Link to = {''}> Home </Link>
                         </div>
 
-                        <div class = 'header'>
+                        <div class = 'header-el' >
+                            <Link to = {'/users'}> users </Link>
+                        </div>
+
+                        {/*<div className = 'header'>
                             <Link to = {'/posts'}> posts </Link>
                         </div>
 
-                        <div class = 'header'>
+                        <div className = 'header'>
                             <Link to = {'/comments'}> comments </Link>
-                        </div>
+                        </div>*/}
                     </div>
 
 
-                    <hr/>
-
-                    <div class = 'main-div' >
                         <Switch>
-                            <Route path = {'/users'}>
-                                <AllUsers/>
-                            </Route>
 
-                            <Route path = {'/posts'} component = {AllPosts} />
+                                <Route path = {'/users'}>
+                                    <AllUsers/>
+                                </Route>
 
-                            <Route path = {'/comments'} render = {() => {
-                                return <AllComments/>
-                                }} />
-                            }
+                                 <Route path = {''}>
+                                 </Route>
+
+                                {/*<Route path = {'/posts'} component = {AllPosts} />
+
+                                <Route path = {'/comments'} render = {() => {
+                                    return <AllComments/>
+                                    }} />
+                                }*/}
 
                         </Switch>
-                    </div>
+
+
 
                 </Router>
-
 
             </div>
         );

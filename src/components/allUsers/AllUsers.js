@@ -30,38 +30,36 @@ class AllUsers extends Component {
     render() {
 
         let {users} = this.state
+        console.log(this.props)
         let {match: {url}} = this.props
 
 
         return (
-            <div>
-
+            <div className='all-users-page'>
+                <div className="users-list">
                 {
                     users.map(user => <UserComponent item = {user} key = {user.id}/>)
                 }
+                </div>
 
-                <hr/>
+                <Switch>
 
-                    <Switch>
-
-                        <Route path = {`${url}/:id/:posts`} render = {(props) => {
-                            console.log(props)
-                            let {match: {params: {id}}} = props
-                            return <UserPosts ID = {id} key = {id} />
-                        }} />
-
-                        <Route path = {`${url}/:id`} exact = {true} render = {(props) => {
+                     <Route path = {`${url}/:id`} exact = {true} render = {(props) => {
                             console.log(props)
                             let {match: {params: {id}}} = props
                             return <FullUser userID = {id} key = {id} />
                         }} />
 
+                     <Route path = {`${url}/:id/:posts`} render = {(props) => {
+                            console.log(props)
+                            let {match: {params: {id}}} = props
+                            return <UserPosts ID = {id} key = {id} />
+                      }} />
 
 
 
-                    </Switch>
+                 </Switch>
 
-                <hr/>
 
 
              </div>
