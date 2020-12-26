@@ -1,12 +1,21 @@
 .chatbox {
     width: 250px;
-    height: 200px;
+
     border: 1px black solid;
-    background: silver;
+    background: #EEFBFF;
     border-radius: 4px;
     margin: 10px;
 }
 
 .input {
     margin: 10px;
+}
+
+.my-message {
+    background: silver;
+    text-align: right;
+}
+
+.heading {
+    text-align: center;
 }

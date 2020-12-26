@@ -12,7 +12,8 @@ class UserComponent extends Component {
     render() {
 
         let {user} = this.props
-
+        /*console.log(typeof user)
+        console.log(user)*/
         return(
             <div>
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../users/FullUserDesign.css'
 import {
     BrowserRouter as Router,
     Link,
@@ -9,17 +10,23 @@ import {
 
 class UserComponent extends Component {
 
+
+
     render() {
 
         let {value} = this.props
-        console.log(value)
+
 
         return(
             <div>
 
-                Messages here.
+                 <div className = 'heading'>Chat</div>
 
-                {value && <div> {value} </div>}
+                {
+                    value && value.map(el => el.fromUser == '0' ? <div className = 'my-message' > {el.text} </div> : <div> {el.text} </div>)
+
+
+                }
 
 
 

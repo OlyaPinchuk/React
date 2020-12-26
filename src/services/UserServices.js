@@ -9,13 +9,17 @@ export class UserServices {
 
     }
 
-    getUserById (id) {
+    getUserById(id) {
             return fetch (`${this.url}/${id}`)
                 .then(value => value.json())
         }
 
 
+    getReply() {
+        return fetch('https://api.chucknorris.io/jokes/random')
+            .then(value => value.json())
 
+    }
 
 
 }
