@@ -13,140 +13,89 @@ import {
 class FullUser extends Component {
 
 
-    mainInput = React.createRef()
+    mainInput = React.createRef();
 
-    userService = new UserServices()
+    userService = new UserServices();
 
-    state = {user: null, reply: null}
+    state = {user: null, messages: null, reply: null};
 
 
     componentDidMount() {
-        let {userID} = this.props
-        this.userService.getUserById(userID).then(value => this.setState({user:value}))
-        this.userService.getReply().then(value => this.setState({reply: value.value}))
+        let {userID} = this.props;
+
+        this.userService.getUserById(userID).then(value => this.setState({user:value}));
+
+        let array = JSON.parse(localStorage.getItem(`messagesArr of ${userID}`));
+        this.setState({messages: array});
+    }
+
+    createMessageObject(fromUser, toUser, text) {
+
+        let currentDate = new Date();
+        let day = currentDate.getDate() + '/' + (currentDate.getMonth()+1) + '/' + currentDate.getFullYear();
+        let timeNow = currentDate.getHours() +':'+ currentDate.getMinutes() +':'+ currentDate.getSeconds();
+
+        let message = {
+            fromUser,
+            toUser,
+            date: day,
+            time: timeNow,
+            text,
+        };
+
+        return message;
+    }
+
+    createReplyObject(messagesArr) {
+
+        let {user} = this.state;
+        this.userService.getReply().then(value => {
+
+            let reply = this.createMessageObject(user.id, 0, value);
+
+            messagesArr.push(reply);
+            this.setState({messages: messagesArr});
+            let messagesArr2 = JSON.stringify(messagesArr);
+            localStorage.setItem(`messagesArr of ${user.id}`, `${messagesArr2} `);
+
+        } );
 
     }
 
+    addMessage(messagesArr) {
+        let {user} = this.state;
+        let message = this.createMessageObject(0, user.id, this.mainInput.value);
 
-    timer = setTimeout(() => console.log('Hello, World!'), 3000)
+        messagesArr.push(message);
+        this.setState({messages: messagesArr});
+        let messagesArr1 = JSON.stringify(messagesArr);
+        localStorage.setItem(`messagesArr of ${user.id}`, `${messagesArr1} `);
+        this.mainInput.value = null;
+
+        setTimeout(() => this.createReplyObject(messagesArr), 2000);
+    }
 
     onMesSubmit = (ev) => {
-//        ev.preventDefault()
-
-        let {user} = this.state
-        let {reply} = this.state
-        let messagesArr = []
-
+        let {user, messages} = this.state;
 
         if(localStorage.hasOwnProperty(`messagesArr of ${user.id}`)) {
-
-            let currentArr = localStorage.getItem(`messagesArr of ${user.id}`)
-            let currentArr1 = JSON.parse(currentArr)
-            let currentdate = new Date()
-            let day = currentdate.getDate() + '/' + (currentdate.getMonth()+1) + '/' + currentdate.getFullYear()
-            let timeNow = currentdate.getHours() +':'+ currentdate.getMinutes() +':'+ currentdate.getSeconds()
-
-            let message = {
-            fromUser: 0,
-            toUser: user.id,
-            date: day,
-            time: timeNow,
-            text: this.mainInput.value
-            }
-
-            currentArr1.push(message)
-            let currentArr2 = JSON.stringify(currentArr1)
-            localStorage.setItem(`messagesArr of ${user.id}`, `${currentArr2} `)
-
-
-            let currentReply = localStorage.getItem(`messagesArr of ${user.id}`)
-            let currentReply1 = JSON.parse(currentReply)
-            let day1 = currentdate.getDate() + '/' + (currentdate.getMonth()+1) + '/' + currentdate.getFullYear()
-            let timeNow1 = currentdate.getHours() +':'+ currentdate.getMinutes() +':'+ currentdate.getSeconds()
-
-            let reply1 = {
-                fromUser: user.id,
-                toUser: 0,
-                date: day1,
-                time: timeNow1,
-                text: reply
-            }
-
-            currentReply1.push(reply1)
-            let currentReply2 = JSON.stringify(currentReply1)
-            localStorage.setItem(`messagesArr of ${user.id}`, `${currentReply2} `)
-
-
+            this.addMessage(JSON.parse(JSON.stringify(messages)))
         } else {
-            let messagesArr = []
-
-            let currentdate = new Date()
-            let day = currentdate.getDate() + '/' + (currentdate.getMonth()+1) + '/' + currentdate.getFullYear()
-            let timeNow = currentdate.getHours() +':'+ currentdate.getMinutes() +':'+ currentdate.getSeconds()
-
-            let message = {
-            fromUser: 0,
-            toUser: user.id,
-            date: day,
-            time: timeNow,
-            text: this.mainInput.value
-            }
-
-            messagesArr.push(message)
-            let messagesArr1 = JSON.stringify(messagesArr)
-            localStorage.setItem(`messagesArr of ${user.id}`, `${messagesArr1}`)
-
-
-
-
-
-            let reply1 = {
-                fromUser: user.id,
-                toUser: 0,
-                date: day,
-                time: timeNow,
-                text: reply
-            }
-
-            messagesArr.push(reply1)
-            let messagesArr2 = JSON.stringify(messagesArr)
-            localStorage.setItem(`messagesArr of ${user.id}`, `${messagesArr2}`)
-
-
+            this.addMessage([])
         }
-
-    }
-
-
+    };
 
 
     render() {
 
         let {user} = this.state
-        console.log(this.state.reply)
-
-        /*let test = [{a:1, b:4}, {c:8}]
-        let test1 = JSON.stringify(test)
-        localStorage.setItem(`test`, `${test1} `)
-        let taken = localStorage.getItem('test')
-        let taken1 = JSON.parse(taken)
-        console.log(typeof taken1)*/
-
-        /*let currentdate = new Date()
-        console.log(currentdate.getDate(), currentdate.getMonth()+1, currentdate.getFullYear(), currentdate.getHours(), currentdate.getMinutes(), currentdate.getSeconds())
-        console.log(currentdate.getDate())
-        console.log(currentdate.getFullYear())
-        console.log(currentdate.getHours())
-        console.log(currentdate.getMinutes())
-        console.log(currentdate.getSeconds())*/
-
-
-
-
+        let {messages} =this.state
 
 
         return(
             <div>
+
+
 
 
 
@@ -159,19 +108,20 @@ class FullUser extends Component {
 
                       <div className = 'chatbox' >
 
-                       {user && <ChatWindow value = {JSON.parse(localStorage.getItem(`messagesArr of ${user.id}`))} /> }
+
+                       {<ChatWindow value = {messages} /> }
 
                       </div>
 
-                    <form>
+                    <div>
 
                       <input ref = {(c) => this.mainInput = c} type = 'input' className = 'input' />
 
 
-                      <button type = 'submit' onClick = {this.onMesSubmit} > send </button>
+                      <button onClick = {this.onMesSubmit} > send </button>
 
 
-                    </form>
+                    </div>
 
                   </div>
 

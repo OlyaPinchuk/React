@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {UserServices} from '../../services/UserServices'
 import UserComponent from './UserComponent'
 import FullUser from './FullUser'
+import './FullUserDesign.css'
 import {
     BrowserRouter as Router,
     Link,
@@ -46,14 +47,7 @@ class AllUsers extends Component {
                         </Route>
                     </Switch>
 
-                    {/*{
-                        localStorage.setItem('1', 'Hi, this is user 1.')
 
-                    }*/}
-
-                    {/*{
-                        console.log(localStorage.getItem('1'))
-                    }*/}
 
                 </div>
 

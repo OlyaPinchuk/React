@@ -1,21 +1,64 @@
 .chatbox {
-    width: 250px;
-
+    width: 400px;
     border: 1px black solid;
     background: #EEFBFF;
     border-radius: 4px;
     margin: 10px;
+
 }
+
+.chatbox .messages {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .input {
     margin: 10px;
 }
 
 .my-message {
-    background: silver;
+    align-self: flex-end;
+    background: #B4CFDF;
     text-align: right;
+    margin: 5px;
+    border-radius: 3px;
+    width: 300px;
+
+
+}
+
+.answer {
+    width: 300px;
+    background: #97A5AD;
+    margin: 5px;
+    border-radius: 3px;
 }
 
 .heading {
     text-align: center;
 }
+
+.my-message .info span, .answer .info span {
+    font-size: 13px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+
+.my-message .info, .answer .info {
+
+    margin-bottom: 10px;
+
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+   color: black;
+   text-decoration: none;
+}
+

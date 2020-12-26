@@ -18,6 +18,7 @@ export class UserServices {
     getReply() {
         return fetch('https://api.chucknorris.io/jokes/random')
             .then(value => value.json())
+            .then(value => value.value)
 
     }
 
