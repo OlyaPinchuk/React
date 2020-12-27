@@ -11,16 +11,17 @@ class UserComponent extends Component {
 
     render() {
 
-        let {user} = this.props
-        /*console.log(typeof user)
-        console.log(user)*/
+        let {user,} = this.props
+
         return(
             <div>
 
 
-                {user.id} - {user.name} - <button> <Link to = {'/users/' + user.id} > chat </Link> </button>
 
+                {
+                    user && <div> {user.id} - {user.name} - <button> <Link to = {'/users/' + user.id} > chat </Link> </button> </div>
 
+                }
 
             </div>
 

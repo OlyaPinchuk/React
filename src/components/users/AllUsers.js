@@ -12,12 +12,11 @@ import {
 } from 'react-router-dom'
 
 
-
 class AllUsers extends Component {
 
     userService = new UserServices()
 
-    state = {users: []}
+    state = {users: [], searchText: '', }
 
     componentDidMount() {
 
@@ -25,17 +24,28 @@ class AllUsers extends Component {
 
     }
 
+    handleSearchInput = (ev) => {
+        let text = ev.target.value
+        this.setState({searchText: text})
+
+    }
+
     render() {
 
-        let {users} = this.state
-
+        let {users, searchText} = this.state;
+        let filtered = users.filter(user => user.name.toUpperCase().includes(searchText.toUpperCase()));
 
         return(
 
                 <div>
 
+                    <div>
+                        <div> Search </div>
+                        <input type = 'text' value = {searchText} onChange = {this.handleSearchInput}/>
+                    </div>
+
                     {
-                        users.map(value => <UserComponent user = {value}  key = {value.id} />)
+                        filtered.map(value => <UserComponent user = {value}  key = {value.id} />)
                     }
 
                     <Switch>
