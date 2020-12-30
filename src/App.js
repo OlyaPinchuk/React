@@ -1,6 +1,11 @@
 import React, {useState, useEffect, useReducer} from 'react';
 
 
+//useSate()
+//useEffect()
+//useReducer()
+
+
 const Test = () => {
     useEffect(() => {
         console.log('mount')
