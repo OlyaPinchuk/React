@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import User from './components/User'
 
 
@@ -13,33 +13,60 @@ import User from './components/User'
 // }
 
 
-const handleSave = () => {
-
-    // setState((prevState) => {})
-    console.log('works')
-
-}
+//const handleSave = (ev) => {
+//
+//    ev.preventDefault()
+//    // setState((prevState) => {})
+//    console.log('works')
+//    console.log(textInput.value)
+//
+//
+//}
 
 
 
 export default function App() {
 
     const [state, setState] = useState(null)
+    const nameInput = useRef(null)
+
+
+    const handleSave = (ev) => {
+
+//        ev.preventDefault()
+        setState({name: nameInput.current.value, age: 20})
+        nameInput.current.value = null
+//        console.log(nameInput.current.value)
+//        console.log(state)
+    }
+
+    console.log(state)
+
+
+
+
 
     return (
 
         <div>
 
-            <form>
+            <div>
 
                 <div>User name</div>
-                <input></input>
-                <div>User phone</div>
+                <input ref = {nameInput} ></input>
+
+                <div>User age</div>
                 <input></input>
 
                 <button type = 'submit' onClick={handleSave} > save </button>
 
-            </form>
+
+                <hr/>
+                <User item = {state} />
+
+            </div>
+
+
         </div>
 
     )

@@ -9,7 +9,13 @@ export default function App({item}) {
     return (
 
         <div>
-            {item}
+
+            {
+                item && <div> {item.name} - {item.age} - <button>edit</button> - <button>remove</button> </div>
+
+
+            }
+
 
         </div>
 
