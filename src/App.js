@@ -1,7 +1,11 @@
 //https://codesandbox.io/s/distracted-mendeleev-hi0k6?file=/src/services/index.js:126-140
-import React, {useState, useEffect, useRef} from 'react';
-import {useSelector} from 'react-redux'
-
+import React, {useState, useEffect, useRef, useCallback} from 'react';
+import {useDispatch, useSelector} from 'react-redux'
+import {Header} from './components/header'
+import './styles.css'
+import {useServices} from "./services";
+import {setProducts} from "./redux";
+import {ProductList} from "./components/products-list/Products-list";
 
 
 export default function App() {
@@ -14,12 +18,31 @@ export default function App() {
         })
     )
 
+    const dispatch = useDispatch()
+
+    const { productService } = useServices()
+
+    const fetchData = useCallback(async() => {
+
+        const data = await productService.getProducts();
+        const json = await data.json();
+
+        dispatch(setProducts(json))
+
+        console.log(json)
+
+    }, [])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
 
     return (
 
         <div>
-
-            {cart.length} {wishlist.length} {products.length}
+            <Header/>
+            <ProductList products={products} />
 
         </div>
 

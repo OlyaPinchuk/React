@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import '../../styles.css'
 
 export const Header = (props) => {
   const { cart, wishlist } = useSelector(
@@ -11,7 +12,7 @@ export const Header = (props) => {
 
   return (
     <header className="d-flex justify-between align-center">
-      <h2>Hello in nedoshop</h2>
+      <h2>Hello in the shop</h2>
 
       <div className="d-flex justify-between">
         <div className="mx-10" title="cart">
