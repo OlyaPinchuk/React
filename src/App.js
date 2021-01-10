@@ -43,7 +43,9 @@ export default function App() {
         <div>
             <Header/>
             <ProductList products={products} />
-            <CartList/>
+            {/*<CartList/>*/}
+            {/*{cart.length >= 1 && <CartList visibility={'inline-block'}/>}*/}
+
 
         </div>
 

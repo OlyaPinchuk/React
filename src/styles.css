@@ -33,6 +33,7 @@ header {
   display: inline-flex;
   flex-direction: row;
   width: 100%;
+  /*background: lightgoldenrodyellow;*/
   /*justify-content: space-between;*/
 
 }
@@ -53,12 +54,13 @@ header {
   padding: 3px;
   border-radius: 3px;
   width: 20%;
+  /*align-self: flex-start;*/
 
 }
 
 .filter-menu {
   background: lightblue;
-  height: 800px;
+  height: 1000px;
   width: 20%;
   color: white;
 
