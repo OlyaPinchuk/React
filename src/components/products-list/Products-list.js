@@ -2,15 +2,21 @@ import React from 'react';
 import {ProductItem} from "../product-item";
 import {useDispatch, useSelector} from "react-redux";
 import '../../styles.css'
-import {toggleItemInWishlist} from "../../redux";
+import {toggleItemInWishlist, toggleItemInCart} from "../../redux";
 
 export const ProductList = ({products}) => {
 
     const dispatch = useDispatch()
     const wishlist = useSelector(({wishlist: {wishlist}}) => wishlist)
+    const cart = useSelector(({cart: {cart}}) => cart)
 
     const onAddToWishlist = (product) => {
         dispatch(toggleItemInWishlist(product))
+    }
+
+    const onAddToCart = (product) => {
+        dispatch(toggleItemInCart(product))
+
     }
 
 
@@ -24,7 +30,8 @@ export const ProductList = ({products}) => {
             {products.map((product) => (
                  <ProductItem
                       isAddedToWishlist={!!wishlist.find(({ id }) => id === product.id)}
-                      // onAddToCart={onAddToCart}
+                      isAddedToCart={!!cart.find(({ id }) => id === product.id)}
+                      onAddToCart={onAddToCart}
                       onAddToWishList={onAddToWishlist}
                       key={product.id}
                       product={product}

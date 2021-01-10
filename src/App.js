@@ -6,6 +6,7 @@ import './styles.css'
 import {useServices} from "./services";
 import {setProducts} from "./redux";
 import {ProductList} from "./components/products-list/Products-list";
+import {CartList} from "./components/cart/CartList";
 
 
 export default function App() {
@@ -29,7 +30,6 @@ export default function App() {
 
         dispatch(setProducts(json))
 
-        console.log(json)
 
     }, [])
 
@@ -43,6 +43,7 @@ export default function App() {
         <div>
             <Header/>
             <ProductList products={products} />
+            <CartList/>
 
         </div>
 
