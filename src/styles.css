@@ -1,0 +1,61 @@
+.navbar {
+    background: #13273A;
+
+}
+
+#catalogue:hover {
+    background: rgba(241, 241, 241, 0.1);
+}
+
+#catalogue {
+    font-weight: bold;
+    border: 1px solid lightslategray;
+    border-radius: 4px;
+            height: 40px;
+
+}
+
+#catalogue-pic {
+    margin-right: 3px;
+
+}
+
+.icon {
+    margin: 3px;
+    font-size: x-small ;
+    color: lightgrey;
+}
+
+#topNavbar {
+    height: 20px;
+}
+
+#addBar{
+    height: 35px;
+
+}
+
+#search {
+    background: white;
+    height: 40px;
+
+}
+#mic {
+        background: white;
+        height: 40px;
+
+}
+#mic-pic {
+    height: 100%;
+    width: 70%;
+}
+
+#find {
+            height: 40px;
+
+}
+
+#search-input {
+    height: 40px;
+    width: 300px;
+}
