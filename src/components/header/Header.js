@@ -5,7 +5,10 @@ import catalogue from '../../catalogue.png'
 import search from '../../search.png'
 import mic from '../../mic.png'
 import {Image, ListGroup, ListGroupItem, Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import Main from "../main/Main";
+import {setProducts} from "../../redux";
+import {ProductService} from "../../services/Product-service";
 
 
 
@@ -13,6 +16,9 @@ import {useSelector} from "react-redux";
 export default function Header() {
 
     const [state, setState] =useState({searchText: ''})
+    const productService = new ProductService()
+
+    const dispatch = useDispatch()
 
     const {products, cart, wishlist} = useSelector(
        ({ products: { products }, cart: { cart }, wishlist: { wishlist } }) => ({
@@ -21,6 +27,13 @@ export default function Header() {
           wishlist
         })
     )
+
+
+    const handleSearchInput = (ev) => {
+        let text = ev.target.value
+       setState({searchText: text})
+       console.log(state.searchText)
+   }
 
     let cartSum = 0;
    if (cart.length >= 1){
@@ -32,6 +45,7 @@ export default function Header() {
 
     return(
         <div>
+
 
             <Nav id = 'addBar' className="navbar-add d-none d-lg-block">Реклама тут</Nav>
             <Nav id='topNavbar' className=" container-fluid navbar navbar-expand-lg text-white d-none d-lg-block">
@@ -71,16 +85,17 @@ export default function Header() {
             </Nav>
 
 
-            <Nav className=" container-fluid navbar navbar-expand-lg navbar-light">
+            <Nav className=" container-fluid navbar sticky-top navbar-expand-lg navbar-light">
                 <div className='row'>
-                    <a  id='logo' className="navbar-brand " href="#">
+                    <a  id='logo' className=" navbar-brand " href="#">
                         <Image src={logo} alt="Rozetka logo" width="270" height="40px"/>
                     </a>
 
                     <div className="main-navbar-item collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
+                        <ul className="navbar-nav mr-auto d-none d-lg-block">
                             <li className="nav-item">
                                 <a id = 'catalogue' className="nav-link text-white " href="#">
+
                                     <Image id = 'catalogue-pic' src={catalogue} alt='Catalogue pic'/>
                                       Каталог товарів
                                 </a>
@@ -90,7 +105,7 @@ export default function Header() {
 
                         {/*<Form id = 'form' className="main-navbar-item form-inline d-block">*/}
 
-                            <div className="input-group">
+                            <div className="input-group ">
                                 <div className="input-group-prepend">
                                     <span id = 'search' className="btn">
                                         <Image src={search} />
@@ -98,17 +113,17 @@ export default function Header() {
                                 </div>
                                 <input id='search-input'
                                        type="text"
-                                       // value={state.searchText}
-                                       // className="form-control"
+                                       value={state.searchText}
+
                                        placeholder="Я шукаю..."
-                                       onChange={console.log('works')}
+                                       onChange={handleSearchInput}
                                        />
 
                                 <div className="input-group-append">
                                     <Button id = 'mic' className="btn" type="button">
                                         <Image id = 'mic-pic' src={mic} />
                                     </Button>
-                                    <Button id='find' className="btn bg-success text-white my-2 my-sm-0" type="submit">Знайти</Button>
+                                    {/*<Button id='find' className="btn bg-success text-white my-2 my-sm-0" type="submit">Знайти</Button>*/}
                                 </div>
                             </div>
 
@@ -119,13 +134,14 @@ export default function Header() {
                             <div id='premium'>PREMIUM</div>
                         </div>
                         <div className = 'main-navbar-item icon btn btn-sm text-white d-none d-lg-block'>Compare</div>
-                        <div className = ' main-navbar-item icon btn btn-sm text-white'>Wishlist</div>
-                        <div className = ' main-navbar-item icon btn btn-sm text-white' title={`total price: ${cartSum}`}>Cart {cart.length}</div>
+                        <div className = ' main-navbar-item icon btn btn-sm text-white '>Wishlist: {wishlist.length} </div>
+                        <div className = ' main-navbar-item icon btn btn-sm text-white' title={`total price: ${cartSum}`}>Cart: {cart.length}</div>
 
                     </div>
                 </div>
             </Nav>
 
+            <Main searchText={state.searchText}/>
 
 
 

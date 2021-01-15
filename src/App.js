@@ -10,7 +10,7 @@ export default function App() {
     return(
         <div>
             <Header/>
-            <Main/>
+            {/*<Main/>*/}
 
         </div>
     )

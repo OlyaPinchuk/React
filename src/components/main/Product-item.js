@@ -3,7 +3,7 @@ import '../../styles.css'
 import add1 from '../../add1.jpeg'
 import add2 from '../../add2.jpg'
 import add3 from '../../add3.jpg'
-import {Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
+import {Image, Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
 import {Carousel} from 'react-bootstrap'
 import {ProductService} from '../../services/Product-service'
 import mac from '../../macbook.jpg'
@@ -19,7 +19,7 @@ export const ProductItem = ({
     return (
         <Col sm = {3}>
             <div className="card border border-secondary">
-                <img className="card-img-top" src={mac} alt="Card image cap"/>
+                <Image className="card-img-top" src={mac} alt="Card image cap"/>
                 <div className="card-body">
                     <h6 className="card-title text-truncate">{title}</h6>
                     <p className="card-text">

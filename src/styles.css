@@ -9,9 +9,12 @@
 
 #catalogue {
     font-weight: bold;
+    font-size: small;
     border: 1px solid lightslategray;
     border-radius: 4px;
-            height: 40px;
+    height: 40px;
+    width: 150px;
+    margin: 2px;
 
 }
 

@@ -4,7 +4,7 @@ import '../../styles.css'
 import add1 from '../../add1.jpeg'
 import add2 from '../../add2.jpg'
 import add3 from '../../add3.jpg'
-import {Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
+import {Image, Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
 import {Carousel} from 'react-bootstrap'
 import {ProductService} from '../../services/Product-service'
 import mac from '../../macbook.jpg'
@@ -14,28 +14,36 @@ import {toggleItemInWishlist, toggleItemInCart} from "../../redux";
 
 
 
-export default function Main() {
+export default function Main({filteredList, handleSearchInput, searchText}) {
 
       const {products, cart, wishlist} = useSelector(
        ({ products: { products }, cart: { cart }, wishlist: { wishlist } }) => ({
           products,
            cart,
           wishlist
-        })
-    )
+            })
+        )
 
     const dispatch = useDispatch()
 
+
     const productService = new ProductService()
 
-        const fetchData = useCallback(async() => {
-            const data = await productService.getAllProducts()
-            dispatch(setProducts(data))
-        }, [])
+    const fetchData = useCallback(async() => {
+        const data = await productService.getAllProducts()
+        dispatch(setProducts(data))
+    }, [])
 
-        useEffect(() => {
-            fetchData()
-        }, [])
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+
+    let filteredItems = products;
+    if (searchText !== ''){
+         filteredItems = products.filter(product => product.title.toUpperCase().includes(searchText.toUpperCase()))
+        console.log(filteredItems)
+    }
 
     const onAddToWishlist = (product) => {
         dispatch(toggleItemInWishlist(product))
@@ -52,7 +60,7 @@ export default function Main() {
     // for (let i = 0; i < images.length; i++){
     //     let item = (
     //         <Carousel.Item key = {i}>
-    //             <img className="d-block align-self-center carousel-pic"
+    //             <Image className="d-block align-self-center carousel-pic"
     //                  src={images[i]}
     //                  alt="First slide"
     //             />
@@ -97,7 +105,7 @@ export default function Main() {
 
                         <Container>
                             <Row>
-                            {products.map((product) => (
+                            { filteredItems !== null && filteredItems.map((product) => (
                                  <ProductItem
                                       isAddedToWishlist={!!wishlist.find(({ id }) => id === product.id)}
                                       isAddedToCart={!!cart.find(({ id }) => id === product.id)}
