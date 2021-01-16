@@ -13,8 +13,8 @@
     border: 1px solid lightslategray;
     border-radius: 4px;
     height: 40px;
-    width: 150px;
-    margin: 2px;
+    width: 170px;
+    /*margin: 2px;*/
 
 }
 
@@ -24,15 +24,14 @@
 }
 
 .icon {
-    margin: 3px;
-    font-size: x-small ;
-    color: lightgrey;
+    /*margin: 2px;*/
+    /*font-size: x-small ;*/
+    /*color: lightgrey;*/
 }
 
 #topNavbar {
     height: 30px;
     background: #13273A;
-    padding: 0;
     font-size: small;
 }
 
@@ -46,6 +45,11 @@
     height: 40px;
 
 }
+
+.input-group {
+    width: 600px;
+}
+
 #mic {
         background: white;
         height: 40px;
@@ -63,7 +67,7 @@
 
 #search-input {
     height: 40px;
-    width: 300px;
+    width: 200px;
 }
 
 #list-group {
@@ -94,7 +98,8 @@
 }
 
 .main-navbar-item {
-    margin-left: 5px;
+    /*margin-left: 5px;*/
+    /*width: 40px;*/
 }
 
 #premium {
@@ -103,5 +108,5 @@
     color: gold;
     font-weight: lighter;
     font-size: smaller;
-    padding-bottom: 2px;
+    /*padding-bottom: 2px;*/
 }

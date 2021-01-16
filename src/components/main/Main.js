@@ -4,7 +4,7 @@ import '../../styles.css'
 import add1 from '../../add1.jpeg'
 import add2 from '../../add2.jpg'
 import add3 from '../../add3.jpg'
-import {Image, Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container} from 'react-bootstrap'
+import {Image, Navbar, Nav, Button, NavDropdown, Form, FormControl, Row, Col, Container, ListGroup, ListGroupItem} from 'react-bootstrap'
 import {Carousel} from 'react-bootstrap'
 import {ProductService} from '../../services/Product-service'
 import mac from '../../macbook.jpg'
@@ -54,56 +54,53 @@ export default function Main({filteredList, handleSearchInput, searchText}) {
 
     }
 
-    // let images = [add2, add1, add3]
-    // let carouselItems = []
-    //
-    // for (let i = 0; i < images.length; i++){
-    //     let item = (
-    //         <Carousel.Item key = {i}>
-    //             <Image className="d-block align-self-center carousel-pic"
-    //                  src={images[i]}
-    //                  alt="First slide"
-    //             />
-    //
-    //         </Carousel.Item>
-    //     )
-    //
-    //     carouselItems.push(item)
-    // }
+    let images = [add2, add1, add3]
+    let carouselItems = []
+
+    for (let i = 0; i < images.length; i++){
+        let item = (
+            <Carousel.Item key = {i}>
+                <Image className="d-block align-self-center carousel-pic"
+                     src={images[i]}
+                     alt="First slide"
+                />
+
+            </Carousel.Item>
+        )
+
+        carouselItems.push(item)
+    }
 
 
     return (
-        <div>
-             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-sm-4 col-md-3">
-                         <ul id = 'list-group' className="list-group">
-                            <li className="list-group-item">Ноутбуки</li>
-                            <li className="list-group-item">Смартфони</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                    </div>
+             <Container fluid>
+                <Row>
 
-                    <div className="col-sm-8 col-md-9">
+                    <Col sm='4' md='3'>
+                        <ListGroup variant="flush">
+                          <ListGroupItem action variant="light" href="#">Ноутбуки</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Смартфони</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Morbi leo risus</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Morbi</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                          <ListGroupItem action variant="light" href="#">Porta ac consectetur ac</ListGroupItem>
+                        </ListGroup>
+                    </Col>
 
-                        {/*<Carousel>*/}
-                        {/*    {carouselItems}*/}
-                        {/*</Carousel>*/}
 
-                        <Container>
+                    <Col sm = '8' md='9' >
+                        <Carousel>
+                            {carouselItems}
+                        </Carousel>
+
+                        <Container fluid>
                             <Row>
                             { filteredItems !== null && filteredItems.map((product) => (
                                  <ProductItem
@@ -117,11 +114,10 @@ export default function Main({filteredList, handleSearchInput, searchText}) {
                                   ))}
                             </Row>
                         </Container>
+                    </Col>
+               </Row>
+            </Container>
 
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     )
