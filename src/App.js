@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
+import {fetchSomething} from "./services";
 
 
-class App extends Component {
+fetchSomething().then(console.log)
 
-    render() {
+function App() {
+
+
         return(
             <div>
 
             </div>
         )
 
-    }
 
 
 }
