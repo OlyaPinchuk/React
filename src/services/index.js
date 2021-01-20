@@ -1,9 +1,6 @@
-import axios from 'axios'
+export * from './MoviesService'
 
-export const fetchSomething = () => {
-    return axios.get('https://api.themoviedb.org/3/movie/76341', {
-        headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWExZGUzZWFhN2I1MjI0Yzk1NzVlYzdmYThhNTI3NSIsInN1YiI6IjYwMDRkYTkyY2IzMDg0MDAzZGRjODEzMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mnMXCEVM4uSHKnObAmXWTMBvdTVSQbjD3zfg_m2qlzI'
-        }
-    })
-}
+
+
+
+

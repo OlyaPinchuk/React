@@ -1,19 +1,38 @@
 import React, {Component} from 'react';
-import {fetchSomething} from "./services";
+import {movieService} from "./services";
+import './App.css'
 
 
-fetchSomething().then(console.log)
+const PageLayout = ({children}) => {
+
+    return (
+        <div className='wrapper'>
+            <header>header data</header>
+
+            <main>
+                {children}
+            </main>
+
+            <footer>footer data</footer>
+
+        </div>
+    )
+}
+
 
 function App() {
 
+    React.useEffect(() => {
+
+        movieService.getMovies().then(console.log)
+
+    }, [])
 
         return(
-            <div>
-
-            </div>
+            <PageLayout>
+                <div>helllllo</div>
+            </PageLayout>
         )
-
-
 
 }
 export default App;
