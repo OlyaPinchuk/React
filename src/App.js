@@ -1,23 +1,10 @@
 import React, {Component} from 'react';
 import {movieService} from "./services";
 import './App.css'
+import {BaseLayout} from "./layouts";
+import {Home} from './pages'
 
 
-const PageLayout = ({children}) => {
-
-    return (
-        <div className='wrapper'>
-            <header>header data</header>
-
-            <main>
-                {children}
-            </main>
-
-            <footer>footer data</footer>
-
-        </div>
-    )
-}
 
 
 function App() {
@@ -29,9 +16,9 @@ function App() {
     }, [])
 
         return(
-            <PageLayout>
-                <div>helllllo</div>
-            </PageLayout>
+            <BaseLayout>
+                <Home/>
+            </BaseLayout>
         )
 
 }

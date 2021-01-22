@@ -1,0 +1,19 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+header, footer {
+  padding: 10px 20px;
+    background: lightblue;
+}
+
