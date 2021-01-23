@@ -17,7 +17,6 @@ export const FilmItem = ({item}) => {
                 backgroundSize: '90%',
                 backgroundPosition: 'top'
             }}>
-               {/*<img className={styles.image} src={`http://image.tmdb.org/t/p/w200${item.poster_path}`} alt='poster image'/>*/}
             </div>
             <div>
                 <h4>{item.original_title}</h4>
