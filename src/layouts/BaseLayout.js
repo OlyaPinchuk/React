@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './BaseLayout.module.css'
 
 export const BaseLayout = ({children}) => {
-    console.log(styles)
 
     return (
         <div className={styles.wrapper}>

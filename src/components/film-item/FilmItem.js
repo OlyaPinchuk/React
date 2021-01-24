@@ -5,7 +5,6 @@ const imgBuilder = (posterPath, size = 200) => `http://image.tmdb.org/t/p/w${siz
 
 export const FilmItem = ({item}) => {
 
-
     return (
         <div  className={styles.filmItem}>
 
@@ -20,6 +19,9 @@ export const FilmItem = ({item}) => {
             </div>
             <div>
                 <h4>{item.original_title}</h4>
+                <h5>{item.movieGenresList.map(({name, id}, index) =>
+                    <span key={id}>{name} {index < item.movieGenresList.length -1 && '-'} </span> )}
+                </h5>
 
                 <p>{item.overview}</p>
                 <span>Release date: {item.release_date}</span>
